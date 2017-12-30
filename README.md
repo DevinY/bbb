@@ -57,9 +57,9 @@ docker-compose exec bbb netstat -ntlp
       listen [::]:443 ssl http2;
 
       resolver 168.95.192.1 192.168.1.1;
-      set $backend "https://<your-domain>:10443";
+      set $backend "https://&lt;your-domain&gt;:10443";
 
-      server_name <your-domain>;
+      server_name &lt;your-domain&gt;;
 
       ssl_certificate /etc/nginx/ssl/fullchain.pem;
 
@@ -68,7 +68,7 @@ docker-compose exec bbb netstat -ntlp
       add_header Strict-Transport-Security "max-age=15768000; includeSubdomains; preload" always;
 
   location /ws {
-          proxy_pass https://<your-domain>:7443;
+          proxy_pass https://&lt;your-domain&gt;:7443;
           proxy_http_version 1.1;
           proxy_set_header Upgrade $http_upgrade;
           proxy_set_header Connection "Upgrade";
