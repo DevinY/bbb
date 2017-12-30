@@ -8,6 +8,16 @@ chmod 700 setup.sh config.sh
 <pre>
 ./config.sh &lt;Your domain&gt;
 </pre>
+
+Check the result by
+<pre>
+git diff
+</pre>
+
+Rollback changs to last commit:(or rollback, if something wrong happens)
+<pre>
+git checkout -- .
+</pre>
 ## Update the domain certificate files:
 
 Put your domain certificate certifcate:
