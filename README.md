@@ -1,9 +1,10 @@
-# bbb
+# How I Create BigBlueButton 2.0 beta's container with docker-compose.
+
 <pre>
 chmod 700 setup.sh config.sh
 </pre>
 
-## Please using domain name instead of ipaddress.
+## Please using domain name instead of ip address.
 <pre>
 ./config.sh &lt;Your domain&gt;
 </pre>
