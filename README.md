@@ -3,11 +3,11 @@
 chmod 700 setup.sh config.sh
 </pre>
 
-##Please using domain name instead of ipaddress.
+## Please using domain name instead of ipaddress.
 <pre>
 ./config.sh <Your domain>
 </pre>
-##Update the domain certificate files:
+## Update the domain certificate files:
 
 Put your domain certificate certifcate:
 
@@ -16,13 +16,13 @@ fullchain.pem
 privkey.pem
 </pre>
 
-or create softlink something like below:
+or create a softlink something like below:
 
 <pre>
 ln -vsf /etc/ssl/your-domain/fullchain.pem fullchain.pem
-<pre>
+</pre>
 
-##Create your bigbluebutton container.
+## Create your bigbluebutton container.
 
 <pre>
 docker-compose up -d
