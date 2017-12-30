@@ -28,3 +28,14 @@ ln -vsf /etc/ssl/your-domain/fullchain.pem fullchain.pem
 <pre>
 docker-compose up -d
 </pre>
+
+## Wait for startup or issue the following command to check out
+the bbb is container's service name.
+<pre>
+docker-compose exec bbb netstat -ntlp
+</pre>
+
+## Enter the container:
+<pre>
+docker-compose exec bbb bash
+</pre>
