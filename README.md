@@ -47,7 +47,16 @@ the bbb is container's service name.
 docker-compose exec bbb netstat -ntlp
 </pre>
 
+# Others
+
+## You can see the secret
+<pre>
+docker-compose exec bbb bbb-conf --secret
+</pre>
+
 ## Enter the container:
 <pre>
 docker-compose exec bbb bash
 </pre>
+
+
