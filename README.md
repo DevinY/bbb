@@ -1,5 +1,19 @@
 # How I Create BigBlueButton 2.0 beta's container with docker-compose.
 
+## Update the domain certificate files:
+Overwrite domain's certifcate files in this working directory:
+
+<pre>
+fullchain.pem
+privkey.pem
+</pre>
+
+or create a softlink something like below:
+
+<pre>
+ln -vsf /etc/ssl/your-domain/fullchain.pem fullchain.pem
+</pre>
+
 ## make sure two file are executable.
 <pre>
 chmod 700 setup.sh config.sh
@@ -19,20 +33,7 @@ Rollback changs to last commit:(or rollback, if something wrong happens)
 <pre>
 git checkout -- .
 </pre>
-## Update the domain certificate files:
 
-Overwrite domain's certifcate files in this working directory:
-
-<pre>
-fullchain.pem
-privkey.pem
-</pre>
-
-or create a softlink something like below:
-
-<pre>
-ln -vsf /etc/ssl/your-domain/fullchain.pem fullchain.pem
-</pre>
 
 ## Create your bigbluebutton container.
 
