@@ -36,13 +36,16 @@ git checkout -- .
 
 
 ## Create your bigbluebutton container.
-
 <pre>
 docker-compose up -d
 </pre>
 
 ## Wait for startup or issue the following command to check out
 the bbb is container's service name.
+<pre>
+docker-compose logs -f
+</pre>
+
 <pre>
 docker-compose exec bbb netstat -ntlp
 </pre>
