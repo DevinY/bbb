@@ -21,7 +21,7 @@ git checkout -- .
 </pre>
 ## Update the domain certificate files:
 
-Put your domain certificate certifcate:
+Overwrite domain's certifcate files in this working directory:
 
 <pre>
 fullchain.pem
