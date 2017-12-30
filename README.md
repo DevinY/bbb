@@ -5,7 +5,7 @@ chmod 700 setup.sh config.sh
 
 ## Please using domain name instead of ipaddress.
 <pre>
-./config.sh <Your domain>
+./config.sh &lt;Your domain&gt;
 </pre>
 ## Update the domain certificate files:
 
