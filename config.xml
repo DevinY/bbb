@@ -1,0 +1,157 @@
+<?xml version="1.0" ?>
+<config>
+    <localeversion suppressWarning="false">0.9.0</localeversion>
+    <version>757</version>
+    <help url="https://bbb.ccc.test/help.html"/>
+    <javaTest url="https://bbb.ccc.test/testjava.html"/>
+    <porttest host="bbb.ccc.test" application="video/portTest" timeout="10000"/>
+    <bwMon server="172.17.0.2" application="video/bwTest"/>
+    <application uri="rtmp://bbb.ccc.test/bigbluebutton" host="https://bbb.ccc.test/bigbluebutton/api/enter"/>
+    <language userSelectionEnabled="true" rtlEnabled="false"/>
+    <skinning url="https://bbb.ccc.test/client/branding/css/V2Theme.css.swf?v=757" />
+    <branding logo="logo.swf" copyright="&#169; 2017 &lt;u&gt;&lt;a href=&quot;https://bbb.ccc.test/home.html&quot; target=&quot;_blank&quot;&gt;BigBlueButton Inc.&lt;/a&gt;&lt;/u&gt; (build {0})" background="" toolbarColor="" showQuote="true"/>
+    <shortcutKeys showButton="true" />
+    <browserVersions chrome="55" firefox="51" flash="23"/>
+    <layout showLogButton="false" defaultLayout="bbb.layout.name.defaultlayout"
+            showToolbar="true" showFooter="true" showMeetingName="true" showHelpButton="true"
+            showLogoutWindow="true" showLayoutTools="true" confirmLogout="true" showNetworkMonitor="false"
+            showRecordingNotification="true" logoutOnStopRecording="false"/>
+    <meeting muteOnStart="false" />
+    <breakoutRooms enabled="true" record="false" />
+    <logging enabled="true" logTarget="trace" level="info" format="{dateUTC} {time} :: {name} :: [{logLevel}] {message}" uri="https://bbb.ccc.test/log" logPattern=".*"/>
+    <lock disableCam="false" disableMic="false" disablePrivateChat="false"
+          disablePublicChat="false" lockedLayout="false" lockOnJoin="true" lockOnJoinConfigurable="false"/>
+
+		<modules>
+
+		<module name="ChatModule" url="https://bbb.ccc.test/client/ChatModule.swf?v=757"
+			uri="rtmp://bbb.ccc.test/bigbluebutton" 
+			dependsOn="UsersModule"	
+			privateEnabled="true"  
+			fontSize="14"
+			baseTabIndex="801"
+			colorPickerIsVisible="false"
+			maxMessageLength="1024"
+		/>
+
+		<module name="UsersModule" url="https://bbb.ccc.test/client/UsersModule.swf?v=757"
+			uri="rtmp://bbb.ccc.test/bigbluebutton" 
+			allowKickUser="true"
+			enableEmojiStatus="true"
+			enableSettingsButton="true"
+			enableGuestUI="false"
+			moderatorUnmute="true"
+			baseTabIndex="301"
+		/>
+
+		<module name="ScreenshareModule"
+			url="https://bbb.ccc.test/client/ScreenshareModule.swf?v=757"
+			uri="rtmp://bbb.ccc.test/screenshare"
+			showButton="true"
+			enablePause="true"
+			tryWebRTCFirst="false"
+			chromeExtensionLink=""
+			chromeExtensionKey=""
+			baseTabIndex="201"
+			help="https://bbb.ccc.test/client/help/screenshare-help.html"
+		/>
+
+		<module name="PhoneModule" url="https://bbb.ccc.test/client/PhoneModule.swf?v=757"
+			uri="rtmp://bbb.ccc.test/sip" 
+			dependsOn="UsersModule"
+			autoJoin="true"
+			listenOnlyMode="true"
+			forceListenOnly="false"
+			skipCheck="false"
+			showButton="true"
+			enabledEchoCancel="true"
+			useWebRTCIfAvailable="true"
+			showPhoneOption="false"
+			showWebRTCStats="false"
+			showWebRTCMOS="false"
+			echoTestApp="9196"
+		/>
+
+		<module name="VideoconfModule" url="https://bbb.ccc.test/client/VideoconfModule.swf?v=757"
+			uri="rtmp://bbb.ccc.test/video"
+			dependsOn="UsersModule"
+			baseTabIndex="401"
+			autoStart="false"
+			skipCamSettingsCheck="false"
+			showButton="true"
+			applyConvolutionFilter="false"
+			convolutionFilter="-1, 0, -1, 0, 6, 0, -1, 0, -1"
+			filterBias="0"
+			filterDivisor="4"
+			displayAvatar="false"
+			priorityRatio="0.67"
+		/>
+
+		<module name="WhiteboardModule" url="https://bbb.ccc.test/client/WhiteboardModule.swf?v=757"
+			uri="rtmp://bbb.ccc.test/bigbluebutton" 
+			dependsOn="PresentModule"
+			baseTabIndex="601"
+			keepToolbarVisible="false"
+		/>
+
+		<module name="PollingModule" url="https://bbb.ccc.test/client/PollingModule.swf?v=757"
+			uri="rtmp://bbb.ccc.test/bigbluebutton" 
+			dependsOn="PresentModule"
+		/>
+
+		<module name="PresentModule" url="https://bbb.ccc.test/client/PresentModule.swf?v=757"
+			uri="rtmp://bbb.ccc.test/bigbluebutton" 
+			dependsOn="UsersModule"
+			host="https://bbb.ccc.test" 
+			showPresentWindow="true"
+			showWindowControls="true"
+			openExternalFileUploadDialog="false"
+			baseTabIndex="501"
+			maxFileSize="30"
+			enableDownload="true"
+		/>
+
+		<module name="CaptionModule" url="https://bbb.ccc.test/client/CaptionModule.swf?v=757"
+			uri="rtmp://bbb.ccc.test/bigbluebutton" 
+			dependsOn="UsersModule"
+			maxPasteLength="1024"
+			baseTabIndex="701"
+		/>
+
+		<module name="LayoutModule" url="https://bbb.ccc.test/client/LayoutModule.swf?v=757"
+			uri="rtmp://bbb.ccc.test/bigbluebutton"
+			layoutConfig="https://bbb.ccc.test/client/conf/layout.xml"
+			enableEdit="false"
+		/>
+
+		<module name="SharedNotesModule" url="https://bbb.ccc.test/client/SharedNotesModule.swf?v=757"
+			uri="rtmp://bbb.ccc.test/bigbluebutton"
+			dependsOn="UsersModule"
+			refreshDelay="500"
+			toolbarVisibleByDefault="false"
+			showToolbarButton="true"
+			fontSize="14"
+			maxMessageLength="5000"
+			maxNoteLength="10000"
+			enableDeleteNotes="false"
+			hideAdditionalNotes="false"
+		/>
+
+<!--
+    <module name="NotesModule" url="https://bbb.ccc.test/client/NotesModule.swf?v=757"
+      saveURL="https://bbb.ccc.test"
+      position="top-left"
+    />
+    
+    <module name="BroadcastModule" url="https://bbb.ccc.test/client/BroadcastModule.swf?v=757"
+      uri="rtmp://bbb.ccc.test/bigbluebutton"
+      streamsUri="https://bbb.ccc.test/streams.xml"
+      position="top-left"
+      showStreams="true"
+      autoPlay="false"
+      dependsOn="UsersModule"
+    />
+-->
+
+	</modules>
+</config>

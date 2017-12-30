@@ -1,0 +1,37 @@
+version: '3'
+services:
+ bbb:
+  image: bigbluebutton/bigbluebutton
+  #image: bbb
+  container_name: bbb
+  volumes:
+  - ./bigbluebutton:/var/www/bigbluebutton
+  ports:
+   - "89:80"
+   - "10443:443"
+   - "1935:1935"
+   - "7443:7443"
+   #- "5066:5066"
+   - "5060:5060"
+   - "5070:5070"
+   #- "5080:5080"
+   - "32730-32768:32730-32768/udp"
+  volumes:
+   - ./dev/bigbluebutton:/root/dev/bigbluebutton
+   - ./bigbluebutton-default:/var/www/bigbluebutton-default
+   - ./fullchain.pem:/etc/nginx/ssl/fullchain.pem
+   - ./privkey.pem:/etc/nginx/ssl/privkey.pem
+   - ./bigbluebutton:/etc/nginx/sites-available/bigbluebutton
+   - ./dhp-2048.pem:/etc/nginx/ssl/dhp-2048.pem
+   - ./bigbluebutton.properties:/var/lib/tomcat7/webapps/bigbluebutton/WEB-INF/classes/bigbluebutton.properties
+   - ./screenshare.properties:/usr/share/red5/webapps/screenshare/WEB-INF/screenshare.properties
+   - ./config.xml:/var/www/bigbluebutton/client/conf/config.xml
+   - ./bigbluebutton.yml:/usr/local/bigbluebutton/core/scripts/bigbluebutton.yml
+   - ./bbb_api_conf.jsp:/var/lib/tomcat7/webapps/demo/bbb_api_conf.jsp
+   - ./sip.nginx:/etc/bigbluebutton/nginx/sip.nginx
+   - ./vars.xml:/opt/freeswitch/conf/vars.xml
+   - ./external.xml:/opt/freeswitch/conf/sip_profiles/external.xml
+   - ./setup.sh:/root/setup.sh
+  cap_add:
+   - NET_ADMIN
+  command: -h bbb.ccc.test
