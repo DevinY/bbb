@@ -7,7 +7,7 @@ services:
   volumes:
   - ./bigbluebutton:/var/www/bigbluebutton
   ports:
-   - "80:80"
+   - "1080:80"
    - "10443:443"
    - "1935:1935"
    - "7443:7443"

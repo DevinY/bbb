@@ -50,6 +50,49 @@ docker-compose logs -f
 docker-compose exec bbb netstat -ntlp
 </pre>
 
+## Add a nginx proxy on your host
+<pre>
+ server {
+      listen 443 ssl http2;
+      listen [::]:443 ssl http2;
+
+      resolver 168.95.192.1 192.168.1.1;
+      set $backend "https://<your-domain>:10443";
+
+      server_name <your-domain>;
+
+      ssl_certificate /etc/nginx/ssl/fullchain.pem;
+
+      ssl_certificate_key /etc/nginx/ssl/privkey.pem;
+
+      add_header Strict-Transport-Security "max-age=15768000; includeSubdomains; preload" always;
+
+  location /ws {
+          proxy_pass https://<your-domain>:7443;
+          proxy_http_version 1.1;
+          proxy_set_header Upgrade $http_upgrade;
+          proxy_set_header Connection "Upgrade";
+          proxy_read_timeout 6h;
+          proxy_send_timeout 6h;
+          client_body_timeout 6h;
+          send_timeout 6h;
+  }
+
+      location / {
+          proxy_set_header        Host                $http_host;
+          proxy_set_header        X-Real-IP           $remote_addr;
+          proxy_set_header        X-Forwarded-For     $proxy_add_x_forwarded_for;
+          proxy_set_header        X-Forwarded-Proto   $scheme;
+          proxy_intercept_errors  on;
+          proxy_http_version      1.1;
+
+          proxy_pass $backend;
+
+      }
+
+  }
+</pre>
+
 # Others
 
 ## You can see the secret
@@ -68,4 +111,3 @@ docker-compose exec bbb nginx
 Enter PEM pass phrase:
 root@bbb:~/bbb#
 </pre>
-
