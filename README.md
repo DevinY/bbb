@@ -59,4 +59,10 @@ docker-compose exec bbb bbb-conf --secret
 docker-compose exec bbb bash
 </pre>
 
+## You have to startup nginx manually if your centificate's key have password protected
+<pre>
+docker-compose exec bbb nginx
+Enter PEM pass phrase:
+root@bbb:~/bbb#
+</pre>
 
