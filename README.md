@@ -1,5 +1,6 @@
 # How I Create BigBlueButton 2.0 beta's container with docker-compose.
 
+## make sure two file are executable.
 <pre>
 chmod 700 setup.sh config.sh
 </pre>
