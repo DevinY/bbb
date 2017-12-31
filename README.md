@@ -111,3 +111,9 @@ docker-compose exec bbb nginx
 Enter PEM pass phrase:
 root@bbb:~/bbb#
 </pre>
+
+## You can change Salt in below two files 
+<pre>
+bbb_api_conf.jsp
+bigbluebutton.properties
+</pre>
