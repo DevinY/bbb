@@ -112,7 +112,7 @@ Enter PEM pass phrase:
 root@bbb:~/bbb#
 </pre>
 
-## Change the shared
+## Change the shared secret
 
 # Salt which is used by 3rd-party apps to authenticate api calls
 securitySalt=a6fe48d5f7eda7a344181719a8c75da8
