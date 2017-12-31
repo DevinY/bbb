@@ -112,8 +112,16 @@ Enter PEM pass phrase:
 root@bbb:~/bbb#
 </pre>
 
-## You can change Salt in below two files 
+## Change the shared
+
+# Salt which is used by 3rd-party apps to authenticate api calls
+securitySalt=a6fe48d5f7eda7a344181719a8c75da8
+<pre>
+bigbluebutton.properties
+</pre>
+
+# This is the security salt that must match the value set in the BigBlueButton server
+String salt = "a6fe48d5f7eda7a344181719a8c75da8";
 <pre>
 bbb_api_conf.jsp
-bigbluebutton.properties
 </pre>
